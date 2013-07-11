@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<%= link_to new_project_path do %>
+<%= link_to "New Project", new_project_path do %>
 bunch
 of
 text
 <% end %>
 
+<h2>Projects</h2>
+<ul id='projects'>
+  <% @projects.each do |project| %>
+    <li><%= link_to project.name, project %></li>
+  <% end %>
+</ul>
 
 </html>

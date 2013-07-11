@@ -1,34 +1,16 @@
 require 'spec_helper'
 
-describe ProjectsController do
+feature 'Creating Projects' do
 
-	def index
+	scenario "can create a project" do
+		visit '/'
+
+		click_link 'New Project'
+
+		fill_in 'Name', with: 'TextMate 2'
+		fill_in 'Description', with: 'A text-editor for OS X'
+		click_button 'Create Project'
+
+		expect(page).to have_content('Project has been created.')
 	end
-
-	def new
-		@project = Project.new
-	end
-
-	def create
-
-	@project = Project.new(params[:project])
-
-	if @project.save
-		flash[:notice] = "Project has been created."
-		redirect_to @project
-	else
-		# nothing, yet
-	end
-
-
-private
-
-	def project_params
-		params.require(:project).permit(:name, :description)
-	end
-
-	def show
-		@project = Project.find(params[:id])
-	end
-
 end
