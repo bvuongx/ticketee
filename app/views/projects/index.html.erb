@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<%= link_to "New Project", new_project_path do %>
-bunch
-of
-text
-<% end %>
+<%= link_to "New Project", new_project_path %>
 
 <h2>Projects</h2>
-<ul id='projects'>
-  <% @projects.each do |project| %>
+
+  <ul>
+    <% @projects.each do |project| %>
     <li><%= link_to project.name, project %></li>
   <% end %>
 </ul>
 
-</html>
